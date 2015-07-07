@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		841734221B4BB0B600E81B2B /* MJConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 841734121B4BB0B600E81B2B /* MJConst.m */; };
+		841734231B4BB0B600E81B2B /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 841734151B4BB0B600E81B2B /* MJFoundation.m */; };
+		841734241B4BB0B600E81B2B /* MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 841734171B4BB0B600E81B2B /* MJProperty.m */; };
+		841734251B4BB0B600E81B2B /* MJType.m in Sources */ = {isa = PBXBuildFile; fileRef = 841734191B4BB0B600E81B2B /* MJType.m */; };
+		841734261B4BB0B600E81B2B /* NSObject+MJCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 8417341B1B4BB0B600E81B2B /* NSObject+MJCoding.m */; };
+		841734271B4BB0B600E81B2B /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8417341D1B4BB0B600E81B2B /* NSObject+MJKeyValue.m */; };
+		841734281B4BB0B600E81B2B /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 8417341F1B4BB0B600E81B2B /* NSObject+MJProperty.m */; };
+		841734291B4BB0B600E81B2B /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 841734211B4BB0B600E81B2B /* NSString+MJExtension.m */; };
 		842B04ED1B43E2D5003567C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 842B04EC1B43E2D5003567C3 /* main.m */; };
 		842B04F01B43E2D5003567C3 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 842B04EF1B43E2D5003567C3 /* AppDelegate.mm */; };
 		842B04F31B43E2D5003567C3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842B04F21B43E2D5003567C3 /* ViewController.m */; };
@@ -27,6 +35,7 @@
 		846E339E1B44CBD400601F98 /* 222.png in Resources */ = {isa = PBXBuildFile; fileRef = 846E339D1B44CBD400601F98 /* 222.png */; };
 		846E33A01B45179800601F98 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 846E339F1B45179800601F98 /* arrow.png */; };
 		846E33A31B45180A00601F98 /* GeoPointCompass.m in Sources */ = {isa = PBXBuildFile; fileRef = 846E33A21B45180A00601F98 /* GeoPointCompass.m */; };
+		84A15A741B4BA4FF0089F222 /* LQScenics.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A15A731B4BA4FF0089F222 /* LQScenics.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +49,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		841734111B4BB0B600E81B2B /* MJConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJConst.h; sourceTree = "<group>"; };
+		841734121B4BB0B600E81B2B /* MJConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJConst.m; sourceTree = "<group>"; };
+		841734131B4BB0B600E81B2B /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
+		841734141B4BB0B600E81B2B /* MJFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJFoundation.h; sourceTree = "<group>"; };
+		841734151B4BB0B600E81B2B /* MJFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJFoundation.m; sourceTree = "<group>"; };
+		841734161B4BB0B600E81B2B /* MJProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJProperty.h; sourceTree = "<group>"; };
+		841734171B4BB0B600E81B2B /* MJProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJProperty.m; sourceTree = "<group>"; };
+		841734181B4BB0B600E81B2B /* MJType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJType.h; sourceTree = "<group>"; };
+		841734191B4BB0B600E81B2B /* MJType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJType.m; sourceTree = "<group>"; };
+		8417341A1B4BB0B600E81B2B /* NSObject+MJCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJCoding.h"; sourceTree = "<group>"; };
+		8417341B1B4BB0B600E81B2B /* NSObject+MJCoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJCoding.m"; sourceTree = "<group>"; };
+		8417341C1B4BB0B600E81B2B /* NSObject+MJKeyValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJKeyValue.h"; sourceTree = "<group>"; };
+		8417341D1B4BB0B600E81B2B /* NSObject+MJKeyValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJKeyValue.m"; sourceTree = "<group>"; };
+		8417341E1B4BB0B600E81B2B /* NSObject+MJProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJProperty.h"; sourceTree = "<group>"; };
+		8417341F1B4BB0B600E81B2B /* NSObject+MJProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJProperty.m"; sourceTree = "<group>"; };
+		841734201B4BB0B600E81B2B /* NSString+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MJExtension.h"; sourceTree = "<group>"; };
+		841734211B4BB0B600E81B2B /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
 		842B04E71B43E2D5003567C3 /* 自定义定位地图.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "自定义定位地图.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		842B04EB1B43E2D5003567C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		842B04EC1B43E2D5003567C3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -52,8 +78,8 @@
 		842B05001B43E2D5003567C3 /* 自定义定位地图Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "自定义定位地图Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		842B05051B43E2D5003567C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		842B05061B43E2D5003567C3 /* _______Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_______Tests.m"; sourceTree = "<group>"; };
-		846E33661B44BE2300601F98 /* BaiduMapAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI.framework; sourceTree = "<group>"; };
-		846E33681B44BE3000601F98 /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = mapapi.bundle; path = BaiduMapAPI.framework/Resources/mapapi.bundle; sourceTree = "<group>"; };
+		846E33661B44BE2300601F98 /* BaiduMapAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BaiduMapAPI.framework; path = "自定义定位地图/BaiduMapAPI.framework"; sourceTree = "<group>"; };
+		846E33681B44BE3000601F98 /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = mapapi.bundle; path = "自定义定位地图/BaiduMapAPI.framework/Resources/mapapi.bundle"; sourceTree = "<group>"; };
 		846E336A1B44BE8F00601F98 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		846E336C1B44BE9C00601F98 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		846E336E1B44BEA300601F98 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -72,6 +98,8 @@
 		846E339F1B45179800601F98 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		846E33A11B45180A00601F98 /* GeoPointCompass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeoPointCompass.h; sourceTree = "<group>"; };
 		846E33A21B45180A00601F98 /* GeoPointCompass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeoPointCompass.m; sourceTree = "<group>"; };
+		84A15A721B4BA4FF0089F222 /* LQScenics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQScenics.h; sourceTree = "<group>"; };
+		84A15A731B4BA4FF0089F222 /* LQScenics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQScenics.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +127,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		841734101B4BB0B600E81B2B /* MJExtension */ = {
+			isa = PBXGroup;
+			children = (
+				841734111B4BB0B600E81B2B /* MJConst.h */,
+				841734121B4BB0B600E81B2B /* MJConst.m */,
+				841734131B4BB0B600E81B2B /* MJExtension.h */,
+				841734141B4BB0B600E81B2B /* MJFoundation.h */,
+				841734151B4BB0B600E81B2B /* MJFoundation.m */,
+				841734161B4BB0B600E81B2B /* MJProperty.h */,
+				841734171B4BB0B600E81B2B /* MJProperty.m */,
+				841734181B4BB0B600E81B2B /* MJType.h */,
+				841734191B4BB0B600E81B2B /* MJType.m */,
+				8417341A1B4BB0B600E81B2B /* NSObject+MJCoding.h */,
+				8417341B1B4BB0B600E81B2B /* NSObject+MJCoding.m */,
+				8417341C1B4BB0B600E81B2B /* NSObject+MJKeyValue.h */,
+				8417341D1B4BB0B600E81B2B /* NSObject+MJKeyValue.m */,
+				8417341E1B4BB0B600E81B2B /* NSObject+MJProperty.h */,
+				8417341F1B4BB0B600E81B2B /* NSObject+MJProperty.m */,
+				841734201B4BB0B600E81B2B /* NSString+MJExtension.h */,
+				841734211B4BB0B600E81B2B /* NSString+MJExtension.m */,
+			);
+			path = MJExtension;
+			sourceTree = "<group>";
+		};
 		842B04DE1B43E2D5003567C3 = {
 			isa = PBXGroup;
 			children = (
+				846E33681B44BE3000601F98 /* mapapi.bundle */,
+				846E33661B44BE2300601F98 /* BaiduMapAPI.framework */,
 				846E33741B44BEC000601F98 /* Security.framework */,
 				846E33721B44BEBA00601F98 /* CoreGraphics.framework */,
 				846E33701B44BEAD00601F98 /* SystemConfiguration.framework */,
@@ -126,24 +180,11 @@
 		842B04E91B43E2D5003567C3 /* 自定义定位地图 */ = {
 			isa = PBXGroup;
 			children = (
-				846E339F1B45179800601F98 /* arrow.png */,
-				846E339D1B44CBD400601F98 /* 222.png */,
-				846E33A11B45180A00601F98 /* GeoPointCompass.h */,
-				846E33A21B45180A00601F98 /* GeoPointCompass.m */,
-				846E33981B44CA0D00601F98 /* CLLocation+YCLocation.h */,
-				846E33991B44CA0D00601F98 /* CLLocation+YCLocation.m */,
-				846E33681B44BE3000601F98 /* mapapi.bundle */,
-				846E33661B44BE2300601F98 /* BaiduMapAPI.framework */,
-				842B04EE1B43E2D5003567C3 /* AppDelegate.h */,
-				842B04EF1B43E2D5003567C3 /* AppDelegate.mm */,
-				842B04F11B43E2D5003567C3 /* ViewController.h */,
-				842B04F21B43E2D5003567C3 /* ViewController.m */,
-				846E33821B44C09F00601F98 /* LQMapView.h */,
-				846E33831B44C09F00601F98 /* LQMapView.m */,
-				846E338B1B44C11100601F98 /* LQAnnotationButton.h */,
-				846E338C1B44C11100601F98 /* LQAnnotationButton.m */,
-				846E338E1B44C12800601F98 /* LQLocationView.h */,
-				846E338F1B44C12800601F98 /* LQLocationView.m */,
+				841734101B4BB0B600E81B2B /* MJExtension */,
+				84A15A711B4BA4540089F222 /* Other */,
+				84A15A701B4BA44D0089F222 /* VC */,
+				84A15A6F1B4BA4470089F222 /* View */,
+				84A15A6E1B4BA4390089F222 /* Model */,
 				842B04F71B43E2D5003567C3 /* Images.xcassets */,
 				842B04F91B43E2D5003567C3 /* LaunchScreen.xib */,
 				842B04EA1B43E2D5003567C3 /* Supporting Files */,
@@ -175,6 +216,52 @@
 				842B05051B43E2D5003567C3 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		84A15A6E1B4BA4390089F222 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84A15A721B4BA4FF0089F222 /* LQScenics.h */,
+				84A15A731B4BA4FF0089F222 /* LQScenics.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		84A15A6F1B4BA4470089F222 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				846E33821B44C09F00601F98 /* LQMapView.h */,
+				846E33831B44C09F00601F98 /* LQMapView.m */,
+				846E338B1B44C11100601F98 /* LQAnnotationButton.h */,
+				846E338C1B44C11100601F98 /* LQAnnotationButton.m */,
+				846E338E1B44C12800601F98 /* LQLocationView.h */,
+				846E338F1B44C12800601F98 /* LQLocationView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		84A15A701B4BA44D0089F222 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				842B04F11B43E2D5003567C3 /* ViewController.h */,
+				842B04F21B43E2D5003567C3 /* ViewController.m */,
+			);
+			name = VC;
+			sourceTree = "<group>";
+		};
+		84A15A711B4BA4540089F222 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				846E339F1B45179800601F98 /* arrow.png */,
+				846E339D1B44CBD400601F98 /* 222.png */,
+				846E33A11B45180A00601F98 /* GeoPointCompass.h */,
+				846E33A21B45180A00601F98 /* GeoPointCompass.m */,
+				846E33981B44CA0D00601F98 /* CLLocation+YCLocation.h */,
+				846E33991B44CA0D00601F98 /* CLLocation+YCLocation.m */,
+				842B04EE1B43E2D5003567C3 /* AppDelegate.h */,
+				842B04EF1B43E2D5003567C3 /* AppDelegate.mm */,
+			);
+			name = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,14 +366,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				841734261B4BB0B600E81B2B /* NSObject+MJCoding.m in Sources */,
 				846E33841B44C09F00601F98 /* LQMapView.m in Sources */,
+				841734231B4BB0B600E81B2B /* MJFoundation.m in Sources */,
 				842B04F31B43E2D5003567C3 /* ViewController.m in Sources */,
+				841734251B4BB0B600E81B2B /* MJType.m in Sources */,
 				842B04F01B43E2D5003567C3 /* AppDelegate.mm in Sources */,
 				846E338D1B44C11100601F98 /* LQAnnotationButton.m in Sources */,
+				841734221B4BB0B600E81B2B /* MJConst.m in Sources */,
 				846E33901B44C12800601F98 /* LQLocationView.m in Sources */,
+				841734241B4BB0B600E81B2B /* MJProperty.m in Sources */,
+				84A15A741B4BA4FF0089F222 /* LQScenics.m in Sources */,
 				842B04ED1B43E2D5003567C3 /* main.m in Sources */,
 				846E339A1B44CA0D00601F98 /* CLLocation+YCLocation.m in Sources */,
+				841734271B4BB0B600E81B2B /* NSObject+MJKeyValue.m in Sources */,
+				841734291B4BB0B600E81B2B /* NSString+MJExtension.m in Sources */,
 				846E33A31B45180A00601F98 /* GeoPointCompass.m in Sources */,
+				841734281B4BB0B600E81B2B /* NSObject+MJProperty.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

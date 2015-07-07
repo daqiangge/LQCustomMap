@@ -11,6 +11,10 @@
 #import "LQLocationView.h"
 #import "LQAnnotationButton.h"
 #import <BaiduMapAPI/BMapKit.h>
+#import "MJExtension.h"
+#import "LQScenics.h"
+
+@class Scenics;
 
 @interface ViewController ()<BMKLocationServiceDelegate,LQMapViewDelegate>
 
@@ -50,8 +54,13 @@ typedef  enum {
     self.mapView = mapView;
     self.mapView.delegate = self;
 
+    NSDictionary *dic = @{@"scenics":@[
+                                  @{@"latitude":@31.642133,@"longgitude":@120.372033}
+                                  ]};
+    LQScenics *scenic = [LQScenics objectWithKeyValues:dic];
+    
     //添加标注位置
-    NSMutableArray *coordinateArray = [self didCalculatePointCoordinateWithPointArray:@[@{@"latitude":@31.642133,@"longitude":@120.372033}]];
+    NSMutableArray *coordinateArray = [self didCalculatePointCoordinateWithPointArray:scenic.scenics];
     for (NSArray *array in coordinateArray) {
         float x = [array[0] floatValue];
         float y = [array[1] floatValue];
@@ -97,6 +106,7 @@ typedef  enum {
     double xx = ((longitude-120.368523) * (self.mapView.scrollView.contentSize.width))/(120.382698-120.368523);
     double yy = ((31.64577-latitude) * (self.mapView.scrollView.contentSize.height))/(31.64577-31.639129);
     NSArray *array = @[[NSNumber numberWithFloat:xx],[NSNumber numberWithFloat:yy]];
+    
     return array;
 }
 
@@ -125,25 +135,24 @@ typedef  enum {
 {
     NSMutableArray *coordinateArray = [NSMutableArray array];
     
-    for (NSDictionary *dic in pointArray) {
-        float latitude = [dic[@"latitude"] floatValue];
-        float longitude = [dic[@"longitude"] floatValue];
-        
-        NSArray *array = [self didCalculateCoordinateWithLatitude:latitude Longitude:longitude];
+    for (Scenics *scenic in pointArray) {
+        NSArray *array = [self didCalculateCoordinateWithLatitude:scenic.latitude Longitude:scenic.longgitude];
         [coordinateArray addObject:array];
     }
-    
     return coordinateArray;
 }
 
 //画路径线
 - (void)drawLineWithImageView:(UIImageView *)imageView
 {
-    NSArray *pointArray = @[@{@"latitude":@31.641064,@"longitude":@120.370777},
-                            @{@"latitude":@31.640753,@"longitude":@120.37273},
-                            @{@"latitude":@31.641641,@"longitude":@120.372721},
-                            @{@"latitude":@31.642052,@"longitude":@120.373404}];
-    NSMutableArray *coordinateArray = [self didCalculatePointCoordinateWithPointArray:pointArray];
+    NSDictionary *scenicsDic = @{@"scenics":@[
+                                         @{@"latitude":@31.641064,@"longgitude":@120.370777},
+                                         @{@"latitude":@31.640753,@"longgitude":@120.37273},
+                                         @{@"latitude":@31.641641,@"longgitude":@120.372721},
+                                         @{@"latitude":@31.642052,@"longgitude":@120.373404}
+                                         ]};
+    LQScenics *scenics = [LQScenics objectWithKeyValues:scenicsDic];
+    NSMutableArray *coordinateArray = [self didCalculatePointCoordinateWithPointArray:scenics.scenics];
 
     UIGraphicsBeginImageContext(imageView.frame.size);
     [imageView.image drawInRect:CGRectMake(0, 0, imageView.frame.size.width, imageView.frame.size.height)];

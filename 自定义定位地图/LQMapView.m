@@ -59,7 +59,7 @@
 
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView
 {
-    NSLog(@"%f",scrollView.zoomScale);
+//    NSLog(@"%f",scrollView.zoomScale);
     
     self.mapImageView.image = [UIImage imageNamed:@"222.png"];
     

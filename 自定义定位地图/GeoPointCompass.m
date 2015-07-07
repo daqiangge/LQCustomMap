@@ -69,7 +69,7 @@ float angle;
 - (void)locationManager:(CLLocationManager *)manager
        didFailWithError:(NSError *)error
 {
-    NSLog(@"Error : %@",[error localizedDescription]);
+//    NSLog(@"Error : %@",[error localizedDescription]);
     
 }
 
@@ -79,7 +79,7 @@ float angle;
     
     float direction = newHeading.magneticHeading;
     
-    NSLog(@"New Heading :%f", direction);
+//    NSLog(@"New Heading :%f", direction);
     
     if (direction > 180)
     {
