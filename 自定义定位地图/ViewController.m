@@ -121,7 +121,7 @@ typedef  enum {
     self.locationview.geoPointCompass.longitudeOfTargetedPoint = self.newLongitude;
 }
 
-//更新标注点
+//更新标注点你
 - (void)updateAnnotationBtnWithScale:(CGFloat)scale
 {
     NSArray *array = [self didCalculateCoordinateWithLatitude:31.642133 Longitude:120.372033];
@@ -146,11 +146,11 @@ typedef  enum {
 - (void)drawLineWithImageView:(UIImageView *)imageView
 {
     NSDictionary *scenicsDic = @{@"scenics":@[
-                                         @{@"latitude":@31.641064,@"longgitude":@120.370777},
-                                         @{@"latitude":@31.640753,@"longgitude":@120.37273},
-                                         @{@"latitude":@31.641641,@"longgitude":@120.372721},
-                                         @{@"latitude":@31.642052,@"longgitude":@120.373404}
-                                         ]};
+                                            @{@"latitude":@31.641064,@"longgitude":@120.370777},
+                                            @{@"latitude":@31.640753,@"longgitude":@120.37273},
+                                            @{@"latitude":@31.641641,@"longgitude":@120.372721},
+                                            @{@"latitude":@31.642052,@"longgitude":@120.373404}
+                                            ]};
     LQScenics *scenics = [LQScenics objectWithKeyValues:scenicsDic];
     NSMutableArray *coordinateArray = [self didCalculatePointCoordinateWithPointArray:scenics.scenics];
 

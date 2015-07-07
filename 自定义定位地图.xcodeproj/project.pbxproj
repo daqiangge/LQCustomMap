@@ -185,8 +185,6 @@
 				84A15A701B4BA44D0089F222 /* VC */,
 				84A15A6F1B4BA4470089F222 /* View */,
 				84A15A6E1B4BA4390089F222 /* Model */,
-				842B04F71B43E2D5003567C3 /* Images.xcassets */,
-				842B04F91B43E2D5003567C3 /* LaunchScreen.xib */,
 				842B04EA1B43E2D5003567C3 /* Supporting Files */,
 			);
 			path = "自定义定位地图";
@@ -252,6 +250,8 @@
 		84A15A711B4BA4540089F222 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				842B04F71B43E2D5003567C3 /* Images.xcassets */,
+				842B04F91B43E2D5003567C3 /* LaunchScreen.xib */,
 				846E339F1B45179800601F98 /* arrow.png */,
 				846E339D1B44CBD400601F98 /* 222.png */,
 				846E33A11B45180A00601F98 /* GeoPointCompass.h */,

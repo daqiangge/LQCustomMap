@@ -16,7 +16,14 @@
 
 @interface Scenics : NSObject
 
+/**
+ *  纬度----Y轴
+ */
 @property (nonatomic, assign) double latitude;
+
+/**
+ *  经度----X轴
+ */
 @property (nonatomic, assign) double longgitude;
 
 @end
