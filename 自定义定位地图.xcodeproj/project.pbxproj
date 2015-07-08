@@ -38,6 +38,7 @@
 		84A6A5271B4CB6DF00F56FF5 /* LQPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A6A5261B4CB6DF00F56FF5 /* LQPopView.m */; };
 		84A6A5291B4CBCCB00F56FF5 /* 1111.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A6A5281B4CBCCB00F56FF5 /* 1111.png */; };
 		84A6A52C1B4CF1B200F56FF5 /* LQCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A6A52B1B4CF1B200F56FF5 /* LQCoordinate.m */; };
+		84A6A52F1B4D1EF700F56FF5 /* LQScenics.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A6A52E1B4D1EF700F56FF5 /* LQScenics.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,8 @@
 		84A6A5281B4CBCCB00F56FF5 /* 1111.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1111.png; sourceTree = "<group>"; };
 		84A6A52A1B4CF1B200F56FF5 /* LQCoordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQCoordinate.h; sourceTree = "<group>"; };
 		84A6A52B1B4CF1B200F56FF5 /* LQCoordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQCoordinate.m; sourceTree = "<group>"; };
+		84A6A52D1B4D1EF700F56FF5 /* LQScenics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQScenics.h; sourceTree = "<group>"; };
+		84A6A52E1B4D1EF700F56FF5 /* LQScenics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQScenics.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +229,8 @@
 			children = (
 				84A6A52A1B4CF1B200F56FF5 /* LQCoordinate.h */,
 				84A6A52B1B4CF1B200F56FF5 /* LQCoordinate.m */,
+				84A6A52D1B4D1EF700F56FF5 /* LQScenics.h */,
+				84A6A52E1B4D1EF700F56FF5 /* LQScenics.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -383,6 +388,7 @@
 				841734251B4BB0B600E81B2B /* MJType.m in Sources */,
 				842B04F01B43E2D5003567C3 /* AppDelegate.mm in Sources */,
 				846E338D1B44C11100601F98 /* LQAnnotationButton.m in Sources */,
+				84A6A52F1B4D1EF700F56FF5 /* LQScenics.m in Sources */,
 				841734221B4BB0B600E81B2B /* MJConst.m in Sources */,
 				846E33901B44C12800601F98 /* LQLocationView.m in Sources */,
 				841734241B4BB0B600E81B2B /* MJProperty.m in Sources */,
