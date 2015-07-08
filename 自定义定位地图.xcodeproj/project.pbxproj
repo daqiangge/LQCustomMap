@@ -35,7 +35,9 @@
 		846E339E1B44CBD400601F98 /* 222.png in Resources */ = {isa = PBXBuildFile; fileRef = 846E339D1B44CBD400601F98 /* 222.png */; };
 		846E33A01B45179800601F98 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 846E339F1B45179800601F98 /* arrow.png */; };
 		846E33A31B45180A00601F98 /* GeoPointCompass.m in Sources */ = {isa = PBXBuildFile; fileRef = 846E33A21B45180A00601F98 /* GeoPointCompass.m */; };
-		84A15A741B4BA4FF0089F222 /* LQScenics.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A15A731B4BA4FF0089F222 /* LQScenics.m */; };
+		84A6A5271B4CB6DF00F56FF5 /* LQPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A6A5261B4CB6DF00F56FF5 /* LQPopView.m */; };
+		84A6A5291B4CBCCB00F56FF5 /* 1111.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A6A5281B4CBCCB00F56FF5 /* 1111.png */; };
+		84A6A52C1B4CF1B200F56FF5 /* LQCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A6A52B1B4CF1B200F56FF5 /* LQCoordinate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,8 +100,11 @@
 		846E339F1B45179800601F98 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		846E33A11B45180A00601F98 /* GeoPointCompass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeoPointCompass.h; sourceTree = "<group>"; };
 		846E33A21B45180A00601F98 /* GeoPointCompass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeoPointCompass.m; sourceTree = "<group>"; };
-		84A15A721B4BA4FF0089F222 /* LQScenics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQScenics.h; sourceTree = "<group>"; };
-		84A15A731B4BA4FF0089F222 /* LQScenics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQScenics.m; sourceTree = "<group>"; };
+		84A6A5251B4CB6DF00F56FF5 /* LQPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQPopView.h; sourceTree = "<group>"; };
+		84A6A5261B4CB6DF00F56FF5 /* LQPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQPopView.m; sourceTree = "<group>"; };
+		84A6A5281B4CBCCB00F56FF5 /* 1111.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1111.png; sourceTree = "<group>"; };
+		84A6A52A1B4CF1B200F56FF5 /* LQCoordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQCoordinate.h; sourceTree = "<group>"; };
+		84A6A52B1B4CF1B200F56FF5 /* LQCoordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQCoordinate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,8 +224,8 @@
 		84A15A6E1B4BA4390089F222 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				84A15A721B4BA4FF0089F222 /* LQScenics.h */,
-				84A15A731B4BA4FF0089F222 /* LQScenics.m */,
+				84A6A52A1B4CF1B200F56FF5 /* LQCoordinate.h */,
+				84A6A52B1B4CF1B200F56FF5 /* LQCoordinate.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -234,6 +239,8 @@
 				846E338C1B44C11100601F98 /* LQAnnotationButton.m */,
 				846E338E1B44C12800601F98 /* LQLocationView.h */,
 				846E338F1B44C12800601F98 /* LQLocationView.m */,
+				84A6A5251B4CB6DF00F56FF5 /* LQPopView.h */,
+				84A6A5261B4CB6DF00F56FF5 /* LQPopView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -250,6 +257,7 @@
 		84A15A711B4BA4540089F222 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				84A6A5281B4CBCCB00F56FF5 /* 1111.png */,
 				842B04F71B43E2D5003567C3 /* Images.xcassets */,
 				842B04F91B43E2D5003567C3 /* LaunchScreen.xib */,
 				846E339F1B45179800601F98 /* arrow.png */,
@@ -347,6 +355,7 @@
 			files = (
 				846E339E1B44CBD400601F98 /* 222.png in Resources */,
 				846E33691B44BE3000601F98 /* mapapi.bundle in Resources */,
+				84A6A5291B4CBCCB00F56FF5 /* 1111.png in Resources */,
 				842B04F81B43E2D5003567C3 /* Images.xcassets in Resources */,
 				846E33A01B45179800601F98 /* arrow.png in Resources */,
 			);
@@ -369,6 +378,7 @@
 				841734261B4BB0B600E81B2B /* NSObject+MJCoding.m in Sources */,
 				846E33841B44C09F00601F98 /* LQMapView.m in Sources */,
 				841734231B4BB0B600E81B2B /* MJFoundation.m in Sources */,
+				84A6A52C1B4CF1B200F56FF5 /* LQCoordinate.m in Sources */,
 				842B04F31B43E2D5003567C3 /* ViewController.m in Sources */,
 				841734251B4BB0B600E81B2B /* MJType.m in Sources */,
 				842B04F01B43E2D5003567C3 /* AppDelegate.mm in Sources */,
@@ -376,11 +386,11 @@
 				841734221B4BB0B600E81B2B /* MJConst.m in Sources */,
 				846E33901B44C12800601F98 /* LQLocationView.m in Sources */,
 				841734241B4BB0B600E81B2B /* MJProperty.m in Sources */,
-				84A15A741B4BA4FF0089F222 /* LQScenics.m in Sources */,
 				842B04ED1B43E2D5003567C3 /* main.m in Sources */,
 				846E339A1B44CA0D00601F98 /* CLLocation+YCLocation.m in Sources */,
 				841734271B4BB0B600E81B2B /* NSObject+MJKeyValue.m in Sources */,
 				841734291B4BB0B600E81B2B /* NSString+MJExtension.m in Sources */,
+				84A6A5271B4CB6DF00F56FF5 /* LQPopView.m in Sources */,
 				846E33A31B45180A00601F98 /* GeoPointCompass.m in Sources */,
 				841734281B4BB0B600E81B2B /* NSObject+MJProperty.m in Sources */,
 			);

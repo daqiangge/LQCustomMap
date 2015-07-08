@@ -14,6 +14,7 @@
 
 - (void)mapViewDidZoomingWithView:(LQMapView *)view zoomScale:(CGFloat)scale;
 - (void)mapViewDidEndZoomingWithView:(LQMapView *)view zoomScale:(CGFloat)scale;
+- (void)mapViewDidTapMapImageViewWithView:(LQMapView *)view;
 
 @end
 

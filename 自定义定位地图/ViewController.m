@@ -12,27 +12,61 @@
 #import "LQAnnotationButton.h"
 #import <BaiduMapAPI/BMapKit.h>
 #import "MJExtension.h"
-#import "LQScenics.h"
+#import "LQCoordinate.h"
+#import "LQPopView.h"
 
-@class Scenics;
+@class LatitudeAndLongitude;
+
+
+#define annotationBtnLatLongJson @{@"latitudeAndLongitudeArray":@[@{@"latitude":@31.642133,@"longitude":@120.372033},@{@"latitude":@31.640753,@"longitude":@120.373404}]}
 
 @interface ViewController ()<BMKLocationServiceDelegate,LQMapViewDelegate>
 
 @property (nonatomic, strong) BMKLocationService* locService;
-@property (nonatomic, strong) LQLocationView *locationview;
-@property (nonatomic, strong) LQMapView *mapView;
+@property (nonatomic, weak)   LQLocationView *locationview;
+@property (nonatomic, weak)   LQMapView *mapView;
 @property (nonatomic, weak)   LQAnnotationButton *annotationBtn;
+@property (nonatomic, weak)   LQPopView *popView;
 @property (nonatomic, assign) CGFloat newLongitude;
 @property (nonatomic, assign) CGFloat newlatitude;
 @property (nonatomic, assign) CGFloat oldMapViewScale;
+@property (nonatomic, strong) NSMutableArray *annotationBtnArray;
 
 @end
 
-typedef  enum {
-    mapScopeaa = 1
-}mapScope;
-
 @implementation ViewController
+
+- (NSMutableArray *)annotationBtnArray
+{
+    if (_annotationBtnArray == nil) {
+        _annotationBtnArray = [NSMutableArray array];
+    }
+    
+    return _annotationBtnArray;
+}
+
+- (LQMapView *)mapView
+{
+    if (_mapView == nil) {
+        LQMapView *mapView = [LQMapView mapView];
+        [self.view addSubview:mapView];
+        _mapView = mapView;
+        _mapView.delegate = self;
+    }
+    
+    return _mapView;
+}
+
+- (LQLocationView *)locationview
+{
+    if (_locationview == nil) {
+        LQLocationView *locationview = [LQLocationView locationViewWithFrame:CGRectMake(0, 0, 20, 20)];
+        [self.mapView.scrollView addSubview:locationview];
+        _locationview = locationview;
+    }
+    
+    return _locationview;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -47,34 +81,10 @@ typedef  enum {
     }
     
     self.view.backgroundColor = [UIColor whiteColor];
-    
-    LQMapView *mapView = [LQMapView mapView];
-    [self.view addSubview:mapView];
     self.oldMapViewScale = self.mapView.scrollView.zoomScale;
-    self.mapView = mapView;
-    self.mapView.delegate = self;
 
-    NSDictionary *dic = @{@"scenics":@[
-                                  @{@"latitude":@31.642133,@"longgitude":@120.372033}
-                                  ]};
-    LQScenics *scenic = [LQScenics objectWithKeyValues:dic];
-    
     //添加标注位置
-    NSMutableArray *coordinateArray = [self didCalculatePointCoordinateWithPointArray:scenic.scenics];
-    for (NSArray *array in coordinateArray) {
-        float x = [array[0] floatValue];
-        float y = [array[1] floatValue];
-        
-        LQAnnotationButton *annotationBtn = [LQAnnotationButton annotationButton];
-        annotationBtn.center = CGPointMake(x, y);
-        [mapView.scrollView addSubview:annotationBtn];
-        self.annotationBtn = annotationBtn;
-    }
-    
-    //我的位置标识符
-    LQLocationView *locationview = [LQLocationView locationViewWithFrame:CGRectMake(0, 0, 20, 20)];
-    [mapView.scrollView addSubview:locationview];
-    self.locationview = locationview;
+    [self addAnnotationBtn];
     
     //定位
     BMKLocationService* locService = [[BMKLocationService alloc]init];
@@ -88,7 +98,69 @@ typedef  enum {
     [BMKLocationService setLocationDistanceFilter:10.f];
 }
 
-//处理位置坐标更新
+/**
+ *  添加标注位置
+ */
+- (void)addAnnotationBtn
+{
+    NSDictionary *dic = annotationBtnLatLongJson;
+    LQCoordinate *coordinates = [LQCoordinate objectWithKeyValues:dic];
+    
+    NSMutableArray *coordinateArray = [self didCalculatePointCoordinateWithPointArray:coordinates.latitudeAndLongitudeArray];
+    for (NSDictionary *coordinateDic in coordinateArray) {
+        double x = [coordinateDic[@"x"] doubleValue];
+        double y = [coordinateDic[@"y"] doubleValue];
+        
+        LQAnnotationButton *annotationBtn = [LQAnnotationButton annotationButton];
+        annotationBtn.center = CGPointMake(x, y);
+        [self.mapView.scrollView addSubview:annotationBtn];
+        [annotationBtn addTarget:self action:@selector(showPopView:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [self.annotationBtnArray addObject:annotationBtn];
+        
+    }
+}
+
+/**
+ *  展示景点popView
+ */
+- (void)showPopView:(LQAnnotationButton *)button
+{
+    self.annotationBtn = button;
+    [self addPopViewWithAnnotationBtnFrame:self.annotationBtn.frame];
+}
+
+/**
+ *  添加标注弹出视图
+ */
+- (void)addPopViewWithAnnotationBtnFrame:(CGRect)annotationBtnFrame
+{
+    CGFloat popViewW = 150;
+    CGFloat popViewH = 100;
+    CGFloat popViewX = CGRectGetMidX(annotationBtnFrame) - popViewW * 0.5;
+    CGFloat popViewY = CGRectGetMinY(annotationBtnFrame) - popViewH;
+    CGRect frame = CGRectMake(popViewX, popViewY, popViewW, popViewH);
+    
+    if (self.popView == nil)
+    {
+        LQPopView *popView = [LQPopView popViewWithFrame:frame];
+        [self.mapView.scrollView addSubview:popView];
+        self.popView = popView;
+        self.popView.hidden = NO;
+    }else
+    {
+        if (self.popView.hidden)
+        {
+            self.popView.hidden = !self.popView.hidden;
+        }
+        
+        self.popView.frame = frame;
+    }
+}
+
+/**
+ *  处理位置坐标更新
+ */
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
 {
     double x = userLocation.location.coordinate.longitude;//纬度
@@ -100,59 +172,91 @@ typedef  enum {
     [self updateLocation];
 }
 
-//计算坐标
-- (NSArray *)didCalculateCoordinateWithLatitude:(CGFloat)latitude Longitude:(CGFloat)longitude
+/**
+ *  计算坐标
+ */
+- (NSDictionary *)didCalculateCoordinateWithLatitude:(CGFloat)latitude Longitude:(CGFloat)longitude
 {
     double xx = ((longitude-120.368523) * (self.mapView.scrollView.contentSize.width))/(120.382698-120.368523);
     double yy = ((31.64577-latitude) * (self.mapView.scrollView.contentSize.height))/(31.64577-31.639129);
-    NSArray *array = @[[NSNumber numberWithFloat:xx],[NSNumber numberWithFloat:yy]];
     
-    return array;
+    NSDictionary *coordinateDic = @{@"x":[NSNumber numberWithDouble:xx],@"y":[NSNumber numberWithDouble:yy]};
+    
+    return coordinateDic;
 }
 
-//更新我的定位坐标
+/**
+ *  更新我的定位坐标
+ */
 - (void)updateLocation
 {
-    NSArray *array = [self didCalculateCoordinateWithLatitude:self.newlatitude Longitude:self.newLongitude];
-    float x = [array[0] floatValue];
-    float y = [array[1] floatValue];
+    NSDictionary *coordinateDic = [self didCalculateCoordinateWithLatitude:self.newlatitude Longitude:self.newLongitude];
+    double x = [coordinateDic[@"x"] doubleValue];
+    double y = [coordinateDic[@"y"] doubleValue];
     self.locationview.center = CGPointMake(x, y);
     self.locationview.geoPointCompass.latitudeOfTargetedPoint = self.newlatitude;
     self.locationview.geoPointCompass.longitudeOfTargetedPoint = self.newLongitude;
 }
 
-//更新标注点你
-- (void)updateAnnotationBtnWithScale:(CGFloat)scale
+/**
+ *  更新标注点位置
+ */
+- (void)updateAnnotationBtn
 {
-    NSArray *array = [self didCalculateCoordinateWithLatitude:31.642133 Longitude:120.372033];
-    float x = [array[0] floatValue];
-    float y = [array[1] floatValue];
-    self.annotationBtn.center = CGPointMake(x, y);
+    NSDictionary *dic = annotationBtnLatLongJson;
+    LQCoordinate *coordinates = [LQCoordinate objectWithKeyValues:dic];
+    
+    for (int i = 0; i < coordinates.latitudeAndLongitudeArray.count; i++) {
+        
+        LatitudeAndLongitude *latLong = coordinates.latitudeAndLongitudeArray[i];
+        
+        NSDictionary *coordinateDic = [self didCalculateCoordinateWithLatitude:latLong.latitude Longitude:latLong.longitude];
+        double x = [coordinateDic[@"x"] doubleValue];
+        double y = [coordinateDic[@"y"] doubleValue];
+        
+        UIButton *btn = self.annotationBtnArray[i];
+        btn.center = CGPointMake(x, y);
+    }
 }
 
-//批量计算点坐标
+/**
+ *  更新标注弹出视图位置
+ */
+- (void)updatePopView
+{
+    CGFloat popViewCenterX = self.annotationBtn.center.x;
+    CGFloat popViewCenterY = self.annotationBtn.center.y - CGRectGetHeight(self.popView.frame) * 0.5 - CGRectGetHeight(self.annotationBtn.frame) * 0.5;
+    
+    self.popView.center = CGPointMake(popViewCenterX, popViewCenterY);
+}
+
+/**
+ *  批量计算点坐标
+ */
 - (NSMutableArray *)didCalculatePointCoordinateWithPointArray:(NSArray *)pointArray
 {
     NSMutableArray *coordinateArray = [NSMutableArray array];
     
-    for (Scenics *scenic in pointArray) {
-        NSArray *array = [self didCalculateCoordinateWithLatitude:scenic.latitude Longitude:scenic.longgitude];
-        [coordinateArray addObject:array];
+    for (LatitudeAndLongitude *latLong in pointArray) {
+        NSDictionary *coordinateDic = [self didCalculateCoordinateWithLatitude:latLong.latitude Longitude:latLong.longitude];
+        [coordinateArray addObject:coordinateDic];
     }
     return coordinateArray;
 }
 
-//画路径线
+/**
+ *  画路径线
+ */
 - (void)drawLineWithImageView:(UIImageView *)imageView
 {
-    NSDictionary *scenicsDic = @{@"scenics":@[
-                                            @{@"latitude":@31.641064,@"longgitude":@120.370777},
-                                            @{@"latitude":@31.640753,@"longgitude":@120.37273},
-                                            @{@"latitude":@31.641641,@"longgitude":@120.372721},
-                                            @{@"latitude":@31.642052,@"longgitude":@120.373404}
+    NSDictionary *scenicsDic = @{@"latitudeAndLongitudeArray":@[
+                                            @{@"latitude":@31.641064,@"longitude":@120.370777},
+                                            @{@"latitude":@31.640753,@"longitude":@120.37273},
+                                            @{@"latitude":@31.641641,@"longitude":@120.372721},
+                                            @{@"latitude":@31.642052,@"longitude":@120.373404}
                                             ]};
-    LQScenics *scenics = [LQScenics objectWithKeyValues:scenicsDic];
-    NSMutableArray *coordinateArray = [self didCalculatePointCoordinateWithPointArray:scenics.scenics];
+    LQCoordinate *coordinates = [LQCoordinate objectWithKeyValues:scenicsDic];
+    NSMutableArray *coordinateArray = [self didCalculatePointCoordinateWithPointArray:coordinates.latitudeAndLongitudeArray];
 
     UIGraphicsBeginImageContext(imageView.frame.size);
     [imageView.image drawInRect:CGRectMake(0, 0, imageView.frame.size.width, imageView.frame.size.height)];
@@ -163,8 +267,8 @@ typedef  enum {
     CGContextBeginPath(UIGraphicsGetCurrentContext());
     
     for (int i = 0; i < coordinateArray.count; i++) {
-        float x = [coordinateArray[i][0] floatValue];
-        float y = [coordinateArray[i][1] floatValue];
+        double x = [coordinateArray[i][@"x"] doubleValue];
+        double y = [coordinateArray[i][@"y"] doubleValue];
         
         if (i == 0) {
             CGContextMoveToPoint(UIGraphicsGetCurrentContext(), x, y);  //起点坐标
@@ -179,16 +283,24 @@ typedef  enum {
 }
 
 #pragma mark -
-//地图放大缩小回掉方法
+/**
+ *  地图放大缩小回掉方法
+ */
 - (void)mapViewDidZoomingWithView:(LQMapView *)view zoomScale:(CGFloat)scale
 {
     [self updateLocation];
-    [self updateAnnotationBtnWithScale:scale];
+    [self updateAnnotationBtn];
+    [self updatePopView];
 }
 
 - (void)mapViewDidEndZoomingWithView:(LQMapView *)view zoomScale:(CGFloat)scale
 {
     [self drawLineWithImageView:self.mapView.mapImageView];
+}
+
+- (void)mapViewDidTapMapImageViewWithView:(LQMapView *)view
+{
+    self.popView.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {

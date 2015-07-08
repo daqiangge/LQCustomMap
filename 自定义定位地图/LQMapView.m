@@ -48,6 +48,19 @@
     [scrollView addSubview:mapImageView];
     [self addSubview:scrollView];
     self.scrollView = scrollView;
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapMapImageVew)];
+    [self.mapImageView addGestureRecognizer:tap];
+}
+
+/**
+ *  点击了地图
+ */
+- (void)tapMapImageVew
+{
+    if ([self.delegate respondsToSelector:@selector(mapViewDidTapMapImageViewWithView:)]) {
+        [self.delegate mapViewDidTapMapImageViewWithView:self];
+    }
 }
 
 #pragma mark -
@@ -59,8 +72,6 @@
 
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView
 {
-//    NSLog(@"%f",scrollView.zoomScale);
-    
     self.mapImageView.image = [UIImage imageNamed:@"222.png"];
     
     if ([self.delegate respondsToSelector:@selector(mapViewDidZoomingWithView:zoomScale:)]) {
