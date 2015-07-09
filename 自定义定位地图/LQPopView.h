@@ -8,7 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@class LQPopView;
+
+@protocol LQPopViewDelegate <NSObject>
+
+- (void)popViewDidTouchSoundBtnWithView:(LQPopView *)popView;
+- (void)popViewDidTouchDetailsBtnWithView:(LQPopView *)popView;
+
+@end
+
+
 @interface LQPopView : UIView
+
+@property (nonatomic, weak) id<LQPopViewDelegate> delegate;
 
 + (instancetype)popViewWithFrame:(CGRect)frame;
 

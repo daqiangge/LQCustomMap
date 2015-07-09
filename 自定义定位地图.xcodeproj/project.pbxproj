@@ -35,6 +35,9 @@
 		846E339E1B44CBD400601F98 /* 222.png in Resources */ = {isa = PBXBuildFile; fileRef = 846E339D1B44CBD400601F98 /* 222.png */; };
 		846E33A01B45179800601F98 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 846E339F1B45179800601F98 /* arrow.png */; };
 		846E33A31B45180A00601F98 /* GeoPointCompass.m in Sources */ = {isa = PBXBuildFile; fileRef = 846E33A21B45180A00601F98 /* GeoPointCompass.m */; };
+		848F8CF31B4DFD97009D113A /* LQViewControllerOne.m in Sources */ = {isa = PBXBuildFile; fileRef = 848F8CF21B4DFD97009D113A /* LQViewControllerOne.m */; };
+		848F8CF51B4E1A72009D113A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 848F8CF41B4E1A72009D113A /* AVFoundation.framework */; };
+		848F8CF71B4E1B8E009D113A /* 你是我的眼.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 848F8CF61B4E1B8E009D113A /* 你是我的眼.mp3 */; };
 		84A6A5271B4CB6DF00F56FF5 /* LQPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A6A5261B4CB6DF00F56FF5 /* LQPopView.m */; };
 		84A6A5291B4CBCCB00F56FF5 /* 1111.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A6A5281B4CBCCB00F56FF5 /* 1111.png */; };
 		84A6A52C1B4CF1B200F56FF5 /* LQCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A6A52B1B4CF1B200F56FF5 /* LQCoordinate.m */; };
@@ -101,6 +104,10 @@
 		846E339F1B45179800601F98 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		846E33A11B45180A00601F98 /* GeoPointCompass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeoPointCompass.h; sourceTree = "<group>"; };
 		846E33A21B45180A00601F98 /* GeoPointCompass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeoPointCompass.m; sourceTree = "<group>"; };
+		848F8CF11B4DFD97009D113A /* LQViewControllerOne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQViewControllerOne.h; sourceTree = "<group>"; };
+		848F8CF21B4DFD97009D113A /* LQViewControllerOne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQViewControllerOne.m; sourceTree = "<group>"; };
+		848F8CF41B4E1A72009D113A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		848F8CF61B4E1B8E009D113A /* 你是我的眼.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "你是我的眼.mp3"; sourceTree = "<group>"; };
 		84A6A5251B4CB6DF00F56FF5 /* LQPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQPopView.h; sourceTree = "<group>"; };
 		84A6A5261B4CB6DF00F56FF5 /* LQPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQPopView.m; sourceTree = "<group>"; };
 		84A6A5281B4CBCCB00F56FF5 /* 1111.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1111.png; sourceTree = "<group>"; };
@@ -115,6 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				848F8CF51B4E1A72009D113A /* AVFoundation.framework in Frameworks */,
 				846E33751B44BEC000601F98 /* Security.framework in Frameworks */,
 				846E33731B44BEBA00601F98 /* CoreGraphics.framework in Frameworks */,
 				846E33711B44BEAD00601F98 /* SystemConfiguration.framework in Frameworks */,
@@ -162,6 +170,7 @@
 		842B04DE1B43E2D5003567C3 = {
 			isa = PBXGroup;
 			children = (
+				848F8CF41B4E1A72009D113A /* AVFoundation.framework */,
 				846E33681B44BE3000601F98 /* mapapi.bundle */,
 				846E33661B44BE2300601F98 /* BaiduMapAPI.framework */,
 				846E33741B44BEC000601F98 /* Security.framework */,
@@ -255,6 +264,8 @@
 			children = (
 				842B04F11B43E2D5003567C3 /* ViewController.h */,
 				842B04F21B43E2D5003567C3 /* ViewController.m */,
+				848F8CF11B4DFD97009D113A /* LQViewControllerOne.h */,
+				848F8CF21B4DFD97009D113A /* LQViewControllerOne.m */,
 			);
 			name = VC;
 			sourceTree = "<group>";
@@ -262,6 +273,7 @@
 		84A15A711B4BA4540089F222 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				848F8CF61B4E1B8E009D113A /* 你是我的眼.mp3 */,
 				84A6A5281B4CBCCB00F56FF5 /* 1111.png */,
 				842B04F71B43E2D5003567C3 /* Images.xcassets */,
 				842B04F91B43E2D5003567C3 /* LaunchScreen.xib */,
@@ -359,6 +371,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				846E339E1B44CBD400601F98 /* 222.png in Resources */,
+				848F8CF71B4E1B8E009D113A /* 你是我的眼.mp3 in Resources */,
 				846E33691B44BE3000601F98 /* mapapi.bundle in Resources */,
 				84A6A5291B4CBCCB00F56FF5 /* 1111.png in Resources */,
 				842B04F81B43E2D5003567C3 /* Images.xcassets in Resources */,
@@ -398,6 +411,7 @@
 				841734291B4BB0B600E81B2B /* NSString+MJExtension.m in Sources */,
 				84A6A5271B4CB6DF00F56FF5 /* LQPopView.m in Sources */,
 				846E33A31B45180A00601F98 /* GeoPointCompass.m in Sources */,
+				848F8CF31B4DFD97009D113A /* LQViewControllerOne.m in Sources */,
 				841734281B4BB0B600E81B2B /* NSObject+MJProperty.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

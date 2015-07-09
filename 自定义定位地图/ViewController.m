@@ -14,13 +14,15 @@
 #import "MJExtension.h"
 #import "LQCoordinate.h"
 #import "LQPopView.h"
+#import "LQViewControllerOne.h"
+#import <AVFoundation/AVFoundation.h>
 
 @class LatitudeAndLongitude;
 
 
 #define annotationBtnLatLongJson @{@"latitudeAndLongitudeArray":@[@{@"latitude":@31.642133,@"longitude":@120.372033},@{@"latitude":@31.640753,@"longitude":@120.373404}]}
 
-@interface ViewController ()<BMKLocationServiceDelegate,LQMapViewDelegate>
+@interface ViewController ()<BMKLocationServiceDelegate,AVAudioPlayerDelegate,LQMapViewDelegate,LQPopViewDelegate>
 
 @property (nonatomic, strong) BMKLocationService* locService;
 @property (nonatomic, weak)   LQLocationView *locationview;
@@ -31,6 +33,7 @@
 @property (nonatomic, assign) CGFloat newlatitude;
 @property (nonatomic, assign) CGFloat oldMapViewScale;
 @property (nonatomic, strong) NSMutableArray *annotationBtnArray;
+@property (nonatomic, weak)   AVAudioPlayer *avAudio;
 
 @end
 
@@ -117,8 +120,19 @@
         [annotationBtn addTarget:self action:@selector(showPopView:) forControlEvents:UIControlEventTouchUpInside];
         
         [self.annotationBtnArray addObject:annotationBtn];
-        
     }
+}
+
+- (void)playSong
+{
+    NSString *str = [[NSBundle mainBundle] pathForResource:@"你是我的眼" ofType:@"mp3"];
+    NSURL *url = [NSURL URLWithString:str];
+    AVAudioPlayer *avAudio = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+    avAudio.delegate = self;
+    avAudio.numberOfLoops = 1;
+    
+    //预播放
+    [avAudio play];
 }
 
 /**
@@ -144,6 +158,7 @@
     if (self.popView == nil)
     {
         LQPopView *popView = [LQPopView popViewWithFrame:frame];
+        popView.delegate = self;
         [self.mapView.scrollView addSubview:popView];
         self.popView = popView;
         self.popView.hidden = NO;
@@ -303,7 +318,43 @@
     self.popView.hidden = YES;
 }
 
-- (void)didReceiveMemoryWarning {
+#pragma mark - LQPopViewDelegate
+/**
+ *  播放语音
+ */
+- (void)popViewDidTouchSoundBtnWithView:(LQPopView *)popView
+{
+    NSLog(@"点击了语音按钮");
+    [self playSong];
+}
+
+/**
+ *  跳转到景点详情
+ */
+- (void)popViewDidTouchDetailsBtnWithView:(LQPopView *)popView
+{
+    NSLog(@"点击了详情按钮");
+    
+    NSDictionary *dic = annotationBtnLatLongJson;
+    LQCoordinate *coordinates = [LQCoordinate objectWithKeyValues:dic];
+    
+    for (int i = 0; i < self.annotationBtnArray.count; i++)
+    {
+        if (self.annotationBtn == self.annotationBtnArray[i])
+        {
+            LatitudeAndLongitude *latLong = coordinates.latitudeAndLongitudeArray[i];
+            
+            LQViewControllerOne *viewOne = [[LQViewControllerOne alloc] init];
+            viewOne.title = [NSString stringWithFormat:@"%f,%f",latLong.latitude,latLong.longitude];
+            UINavigationController *navOne = [[UINavigationController alloc] initWithRootViewController:viewOne];
+            [self presentViewController:navOne animated:YES completion:nil];
+        }
+    }
+}
+
+
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
