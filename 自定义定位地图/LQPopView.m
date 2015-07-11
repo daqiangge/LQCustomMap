@@ -7,6 +7,11 @@
 //
 
 #import "LQPopView.h"
+#import "LQSoundButton.h"
+
+@interface LQPopView()<LQSoundButtonDelegate>
+
+@end
 
 @implementation LQPopView
 
@@ -32,11 +37,8 @@
     imageView.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame));
     [self addSubview:imageView];
     
-    UIButton *soundBtn = [[UIButton alloc] init];
-    soundBtn.frame = CGRectMake(10, 30, 40, 30);
-    [soundBtn setTitle:@"语音" forState:UIControlStateNormal];
-    [soundBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [soundBtn addTarget:self action:@selector(touchSoundBtn) forControlEvents:UIControlEventTouchUpInside];
+    LQSoundButton *soundBtn = [LQSoundButton soundButtonWithFrame:CGRectMake(10, 30, 40, 30)];
+    soundBtn.delegate = self;
     [self addSubview:soundBtn];
     
     soundBtn.layer.borderColor = [UIColor blackColor].CGColor;
@@ -56,17 +58,18 @@
     
 }
 
-- (void)touchSoundBtn
-{
-    if ([self.delegate respondsToSelector:@selector(popViewDidTouchSoundBtnWithView:) ]) {
-        [self.delegate popViewDidTouchSoundBtnWithView:self];
-    }
-}
-
 - (void)touchDetailsBtn
 {
     if ([self.delegate respondsToSelector:@selector(popViewDidTouchDetailsBtnWithView:) ]) {
         [self.delegate popViewDidTouchDetailsBtnWithView:self];
+    }
+}
+
+#pragma mark - LQSoundButtonDelegate
+- (void)soundBtnDidClickWithView:(LQSoundButton *)soundButton
+{
+    if ([self.delegate respondsToSelector:@selector(popViewDidClickSoundBtnWithView:) ]) {
+        [self.delegate popViewDidClickSoundBtnWithView:self];
     }
 }
 

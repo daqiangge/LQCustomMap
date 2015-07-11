@@ -20,6 +20,10 @@
 		842B04F31B43E2D5003567C3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842B04F21B43E2D5003567C3 /* ViewController.m */; };
 		842B04F81B43E2D5003567C3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 842B04F71B43E2D5003567C3 /* Images.xcassets */; };
 		842B05071B43E2D5003567C3 /* _______Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 842B05061B43E2D5003567C3 /* _______Tests.m */; };
+		84361B511B50AC7A00B6584C /* LQSoundButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 84361B501B50AC7A00B6584C /* LQSoundButton.m */; };
+		84361B551B50BB3400B6584C /* fs_icon_wave_0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84361B521B50BB3400B6584C /* fs_icon_wave_0@2x.png */; };
+		84361B561B50BB3400B6584C /* fs_icon_wave_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84361B531B50BB3400B6584C /* fs_icon_wave_1@2x.png */; };
+		84361B571B50BB3400B6584C /* fs_icon_wave_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84361B541B50BB3400B6584C /* fs_icon_wave_2@2x.png */; };
 		846E33671B44BE2300601F98 /* BaiduMapAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 846E33661B44BE2300601F98 /* BaiduMapAPI.framework */; };
 		846E33691B44BE3000601F98 /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 846E33681B44BE3000601F98 /* mapapi.bundle */; };
 		846E336B1B44BE8F00601F98 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 846E336A1B44BE8F00601F98 /* CoreLocation.framework */; };
@@ -84,6 +88,11 @@
 		842B05001B43E2D5003567C3 /* 自定义定位地图Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "自定义定位地图Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		842B05051B43E2D5003567C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		842B05061B43E2D5003567C3 /* _______Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_______Tests.m"; sourceTree = "<group>"; };
+		84361B4F1B50AC7A00B6584C /* LQSoundButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSoundButton.h; sourceTree = "<group>"; };
+		84361B501B50AC7A00B6584C /* LQSoundButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSoundButton.m; sourceTree = "<group>"; };
+		84361B521B50BB3400B6584C /* fs_icon_wave_0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fs_icon_wave_0@2x.png"; sourceTree = "<group>"; };
+		84361B531B50BB3400B6584C /* fs_icon_wave_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fs_icon_wave_1@2x.png"; sourceTree = "<group>"; };
+		84361B541B50BB3400B6584C /* fs_icon_wave_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fs_icon_wave_2@2x.png"; sourceTree = "<group>"; };
 		846E33661B44BE2300601F98 /* BaiduMapAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BaiduMapAPI.framework; path = "自定义定位地图/BaiduMapAPI.framework"; sourceTree = "<group>"; };
 		846E33681B44BE3000601F98 /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = mapapi.bundle; path = "自定义定位地图/BaiduMapAPI.framework/Resources/mapapi.bundle"; sourceTree = "<group>"; };
 		846E336A1B44BE8F00601F98 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -255,6 +264,8 @@
 				846E338F1B44C12800601F98 /* LQLocationView.m */,
 				84A6A5251B4CB6DF00F56FF5 /* LQPopView.h */,
 				84A6A5261B4CB6DF00F56FF5 /* LQPopView.m */,
+				84361B4F1B50AC7A00B6584C /* LQSoundButton.h */,
+				84361B501B50AC7A00B6584C /* LQSoundButton.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -273,6 +284,9 @@
 		84A15A711B4BA4540089F222 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				84361B521B50BB3400B6584C /* fs_icon_wave_0@2x.png */,
+				84361B531B50BB3400B6584C /* fs_icon_wave_1@2x.png */,
+				84361B541B50BB3400B6584C /* fs_icon_wave_2@2x.png */,
 				848F8CF61B4E1B8E009D113A /* 你是我的眼.mp3 */,
 				84A6A5281B4CBCCB00F56FF5 /* 1111.png */,
 				842B04F71B43E2D5003567C3 /* Images.xcassets */,
@@ -374,8 +388,11 @@
 				848F8CF71B4E1B8E009D113A /* 你是我的眼.mp3 in Resources */,
 				846E33691B44BE3000601F98 /* mapapi.bundle in Resources */,
 				84A6A5291B4CBCCB00F56FF5 /* 1111.png in Resources */,
+				84361B551B50BB3400B6584C /* fs_icon_wave_0@2x.png in Resources */,
+				84361B561B50BB3400B6584C /* fs_icon_wave_1@2x.png in Resources */,
 				842B04F81B43E2D5003567C3 /* Images.xcassets in Resources */,
 				846E33A01B45179800601F98 /* arrow.png in Resources */,
+				84361B571B50BB3400B6584C /* fs_icon_wave_2@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +430,7 @@
 				846E33A31B45180A00601F98 /* GeoPointCompass.m in Sources */,
 				848F8CF31B4DFD97009D113A /* LQViewControllerOne.m in Sources */,
 				841734281B4BB0B600E81B2B /* NSObject+MJProperty.m in Sources */,
+				84361B511B50AC7A00B6584C /* LQSoundButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

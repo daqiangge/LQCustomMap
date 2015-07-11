@@ -12,7 +12,7 @@
 
 @protocol LQPopViewDelegate <NSObject>
 
-- (void)popViewDidTouchSoundBtnWithView:(LQPopView *)popView;
+- (void)popViewDidClickSoundBtnWithView:(LQPopView *)popView;
 - (void)popViewDidTouchDetailsBtnWithView:(LQPopView *)popView;
 
 @end

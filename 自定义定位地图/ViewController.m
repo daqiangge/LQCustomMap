@@ -33,7 +33,7 @@
 @property (nonatomic, assign) CGFloat newlatitude;
 @property (nonatomic, assign) CGFloat oldMapViewScale;
 @property (nonatomic, strong) NSMutableArray *annotationBtnArray;
-@property (nonatomic, weak)   AVAudioPlayer *avAudio;
+@property (nonatomic, strong)   AVAudioPlayer *avAudio;
 
 @end
 
@@ -125,14 +125,18 @@
 
 - (void)playSong
 {
-    NSString *str = [[NSBundle mainBundle] pathForResource:@"你是我的眼" ofType:@"mp3"];
-    NSURL *url = [NSURL URLWithString:str];
-    AVAudioPlayer *avAudio = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
-    avAudio.delegate = self;
-    avAudio.numberOfLoops = 1;
+    if (self.avAudio == nil)
+    {
+        NSString *str = [[NSBundle mainBundle] pathForResource:@"你是我的眼" ofType:@"mp3"];
+        NSURL *url = [NSURL fileURLWithPath:str];
+        self.avAudio = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];//使用本地URL创建
+        self.avAudio.volume = 0.8;
+        self.avAudio.numberOfLoops = 3;//默认只播放一次
+        self.avAudio.delegate = self;
+        [self.avAudio prepareToPlay];//分配播放所需的资源，并将其加入内部播放队列
+    }
     
-    //预播放
-    [avAudio play];
+    [self.avAudio play];//播放
 }
 
 /**
@@ -297,6 +301,24 @@
     UIGraphicsEndImageContext();
 }
 
+#pragma mark - AVAudioPlayer Delegate
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer*)player successfully:(BOOL)flag{
+    //播放结束时执行的动作
+    NSLog(@"播放结束时执行的动作");
+}
+- (void)audioPlayerDecodeErrorDidOccur:(AVAudioPlayer*)player error:(NSError *)error{
+    //解码错误执行的动作
+    NSLog(@"解码错误执行的动作");
+}
+- (void)audioPlayerBeginInteruption:(AVAudioPlayer*)player{
+    //处理中断的代码
+    NSLog(@"处理中断的代码");
+}
+- (void)audioPlayerEndInteruption:(AVAudioPlayer*)player{
+    //处理中断结束的代码
+    NSLog(@"处理中断结束的代码");
+}
+
 #pragma mark -
 /**
  *  地图放大缩小回掉方法
@@ -322,10 +344,13 @@
 /**
  *  播放语音
  */
-- (void)popViewDidTouchSoundBtnWithView:(LQPopView *)popView
+- (void)popViewDidClickSoundBtnWithView:(LQPopView *)popView
 {
-    NSLog(@"点击了语音按钮");
-    [self playSong];
+    if (self.avAudio.isPlaying) {
+        [self.avAudio stop];
+    }else {
+        [self playSong];
+    }
 }
 
 /**
