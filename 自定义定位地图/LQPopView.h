@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @class LQPopView;
+@class LQSoundButton;
 
 @protocol LQPopViewDelegate <NSObject>
 
-- (void)popViewDidClickSoundBtnWithView:(LQPopView *)popView;
+- (void)popViewDidClickSoundBtnWithView:(LQPopView *)popView soundButton:(LQSoundButton *)soundButton;
 - (void)popViewDidTouchDetailsBtnWithView:(LQPopView *)popView;
 
 @end

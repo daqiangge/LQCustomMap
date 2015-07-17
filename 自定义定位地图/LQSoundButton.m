@@ -40,25 +40,35 @@
     NSLog(@"点击了语音按钮");
     
     if (button.imageView.isAnimating) {
-        [button.imageView stopAnimating];
-        [button setImage:nil  forState:UIControlStateNormal];
-        [button setTitle:@"语音" forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [self stopSoundButton:button];
     }else {
-        [button setTitle:nil forState:UIControlStateNormal];
-        [button setImage:[UIImage imageNamed:@"fs_icon_wave_2"]  forState:UIControlStateNormal];
-        UIImage *image0 = [[UIImage imageNamed:[NSString stringWithFormat:@"%@", @"fs_icon_wave_0"]] imageWithRenderingMode:UIImageRenderingModeAutomatic];
-        UIImage *image1 = [[UIImage imageNamed:[NSString stringWithFormat:@"%@", @"fs_icon_wave_1"]] imageWithRenderingMode:UIImageRenderingModeAutomatic];
-        UIImage *image2 = [[UIImage imageNamed:[NSString stringWithFormat:@"%@", @"fs_icon_wave_2"]] imageWithRenderingMode:UIImageRenderingModeAutomatic];
-        button.imageView.animationImages = @[image0,image1,image2];
-        button.imageView.animationDuration = 1.0;
-        [button.imageView startAnimating];
+        [self startSoundButton:button];
     }
     
     if ([self.delegate respondsToSelector:@selector(soundBtnDidClickWithView:)])
     {
         [self.delegate soundBtnDidClickWithView:self];
     }
+}
+
+- (void)stopSoundButton:(UIButton *)button
+{
+    [button.imageView stopAnimating];
+    [button setImage:nil  forState:UIControlStateNormal];
+    [button setTitle:@"语音" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+}
+
+- (void)startSoundButton:(UIButton *)button
+{
+    [button setTitle:nil forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"fs_icon_wave_2"]  forState:UIControlStateNormal];
+    UIImage *image0 = [[UIImage imageNamed:[NSString stringWithFormat:@"%@", @"fs_icon_wave_0"]] imageWithRenderingMode:UIImageRenderingModeAutomatic];
+    UIImage *image1 = [[UIImage imageNamed:[NSString stringWithFormat:@"%@", @"fs_icon_wave_1"]] imageWithRenderingMode:UIImageRenderingModeAutomatic];
+    UIImage *image2 = [[UIImage imageNamed:[NSString stringWithFormat:@"%@", @"fs_icon_wave_2"]] imageWithRenderingMode:UIImageRenderingModeAutomatic];
+    button.imageView.animationImages = @[image0,image1,image2];
+    button.imageView.animationDuration = 1.0;
+    [button.imageView startAnimating];
 }
 
 @end

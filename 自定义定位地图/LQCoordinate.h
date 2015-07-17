@@ -26,4 +26,9 @@
  */
 @property (nonatomic, assign) double longitude;
 
+/**
+ *  语音名称
+ */
+@property (nonatomic, copy) NSString *soundName;
+
 @end

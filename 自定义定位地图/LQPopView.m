@@ -68,8 +68,8 @@
 #pragma mark - LQSoundButtonDelegate
 - (void)soundBtnDidClickWithView:(LQSoundButton *)soundButton
 {
-    if ([self.delegate respondsToSelector:@selector(popViewDidClickSoundBtnWithView:) ]) {
-        [self.delegate popViewDidClickSoundBtnWithView:self];
+    if ([self.delegate respondsToSelector:@selector(popViewDidClickSoundBtnWithView:soundButton:) ]) {
+        [self.delegate popViewDidClickSoundBtnWithView:self soundButton:soundButton];
     }
 }
 

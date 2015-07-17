@@ -23,5 +23,7 @@
 
 
 + (instancetype)soundButtonWithFrame:(CGRect)frame;
+- (void)startSoundButton:(UIButton *)button;
+- (void)stopSoundButton:(UIButton *)button;
 
 @end
